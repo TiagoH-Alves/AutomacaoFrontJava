@@ -33,7 +33,7 @@ public class FormPage {
         campo.sendKeys(cpf);
         //Sleep somente para visualizar
         try {
-            Thread.sleep(2000); // espera 5 segundos
+            Thread.sleep(4000); // espera 5 segundos
         } catch (InterruptedException e) {
             //nao realizar acao
         }
