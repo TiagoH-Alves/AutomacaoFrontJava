@@ -5,4 +5,6 @@ Feature: Preencher formulário
     When ele preenche o campo nome com "Tiago Henrique"
     And ele preenche o campo sobrenome com "Alves"
     And ele preenche o campo CPF
+    And ele preenche o campo com Data de Nascimento
     Then o campo deve conter "Tiago Henrique"
+

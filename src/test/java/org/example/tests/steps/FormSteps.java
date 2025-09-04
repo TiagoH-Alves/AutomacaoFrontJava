@@ -2,6 +2,7 @@ package org.example.tests.steps;
 import io.cucumber.java.en.*;
 import org.example.driver.DriverFactory;
 import utils.PreencherCpf;
+import utils.PreencherData;
 import org.example.pages.FormPage;
 import org.openqa.selenium.WebDriver;
 import org.junit.Assert;
@@ -37,6 +38,11 @@ public class FormSteps {
     @When("ele preenche o campo CPF")
     public void preenche_cpf (){
         formPage.preencherCpf(PreencherCpf.gerarCpfFormatado());
+    }
+
+    @When("ele preenche o campo com Data de Nascimento")
+    public void preencheDataDeNascimento () {
+        formPage.prencherDatadeNascimento(PreencherData.gerarData());
     }
 
     @Then("o campo deve conter {string}")

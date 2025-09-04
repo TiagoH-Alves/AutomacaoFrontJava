@@ -10,6 +10,7 @@ public class FormPage {
     private By inputSobrenome = By.id("lastName");
     private By inputCpf = By.id("cpf");
     private By botaoEnviar = By.id("btn-enviar");
+    private By inputData = By.id("dtnasc");
 
     public FormPage(WebDriver driver) {
         this.driver = driver;
@@ -33,7 +34,19 @@ public class FormPage {
         campo.sendKeys(cpf);
         //Sleep somente para visualizar
         try {
-            Thread.sleep(4000); // espera 5 segundos
+            Thread.sleep(1000); // espera 5 segundos
+        } catch (InterruptedException e) {
+            //nao realizar acao
+        }
+    }
+
+    public void prencherDatadeNascimento(String datadenascimento){
+        WebElement campo = driver.findElement(inputData);
+        campo.clear();
+        campo.sendKeys(datadenascimento);
+        //Sleep somente para visualizar
+        try {
+            Thread.sleep(1000); // espera 5 segundos
         } catch (InterruptedException e) {
             //nao realizar acao
         }
