@@ -11,6 +11,8 @@ public class FormPage {
     private By inputCpf = By.id("cpf");
     private By botaoEnviar = By.id("btn-enviar");
     private By inputData = By.id("dtnasc");
+    private By inputEmail = By.id("email");
+
 
     public FormPage(WebDriver driver) {
         this.driver = driver;
@@ -44,6 +46,18 @@ public class FormPage {
         WebElement campo = driver.findElement(inputData);
         campo.clear();
         campo.sendKeys(datadenascimento);
+        //Sleep somente para visualizar
+        try {
+            Thread.sleep(1000); // espera 5 segundos
+        } catch (InterruptedException e) {
+            //nao realizar acao
+        }
+    }
+
+    public void prenchercampoEmail(String Email){
+        WebElement campo = driver.findElement(inputEmail);
+        campo.clear();
+        campo.sendKeys(Email);
         //Sleep somente para visualizar
         try {
             Thread.sleep(1000); // espera 5 segundos

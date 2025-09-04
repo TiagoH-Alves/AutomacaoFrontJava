@@ -3,6 +3,7 @@ import io.cucumber.java.en.*;
 import org.example.driver.DriverFactory;
 import utils.PreencherCpf;
 import utils.PreencherData;
+import utils.PreencherEmail;
 import org.example.pages.FormPage;
 import org.openqa.selenium.WebDriver;
 import org.junit.Assert;
@@ -43,6 +44,11 @@ public class FormSteps {
     @When("ele preenche o campo com Data de Nascimento")
     public void preencheDataDeNascimento () {
         formPage.prencherDatadeNascimento(PreencherData.gerarData());
+    }
+
+    @When("ele preenche o campo com Email")
+    public void preencheCampoEmail () {
+        formPage.prenchercampoEmail(PreencherEmail.gerarEmail());
     }
 
     @Then("o campo deve conter {string}")
