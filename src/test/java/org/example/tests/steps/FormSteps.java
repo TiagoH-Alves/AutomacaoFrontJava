@@ -18,7 +18,7 @@ public class FormSteps {
     @Given("que o usuário está na página do formulário")
     public void usuario_esta_no_formulario() {
         driver = DriverFactory.getDriver();
-        driver.get("file:///C:/Users/tiago/Projeto-Marte-Ataca/index.html");
+        driver.get("file:///C:/Users/tiago/IdeaProjects/AutomacaoWEB/ProjetoCadastroApp/index.html");
         formPage = new FormPage(driver);
         //Sleep somente para visualizar home
         try {
