@@ -1,6 +1,7 @@
 package org.example.tests.steps;
 import io.cucumber.java.en.*;
 import org.example.driver.DriverFactory;
+import utils.PreencherCep;
 import utils.PreencherCpf;
 import utils.PreencherData;
 import utils.PreencherEmail;
@@ -49,6 +50,11 @@ public class FormSteps {
     @When("ele preenche o campo com Email")
     public void preencheCampoEmail () {
         formPage.prenchercampoEmail(PreencherEmail.gerarEmail());
+    }
+
+    @When("ele preenche o campo com CEP")
+    public void PreencherCep () {
+        formPage.PreencherCampoCep(PreencherCep.gerarCep());
     }
 
     @Then("o campo deve conter {string}")
