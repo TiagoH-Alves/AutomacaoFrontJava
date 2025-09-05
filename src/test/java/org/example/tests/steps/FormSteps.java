@@ -5,6 +5,7 @@ import utils.PreencherCep;
 import utils.PreencherCpf;
 import utils.PreencherData;
 import utils.PreencherEmail;
+import utils.PreencherTelefone;
 import org.example.pages.FormPage;
 import org.openqa.selenium.WebDriver;
 import org.junit.Assert;
@@ -57,10 +58,15 @@ public class FormSteps {
         formPage.PreencherCampoCep(PreencherCep.gerarCep());
     }
 
+    @When("ele preenche o campo com Celular")
+        public void PreencherTellefone () {
+            formPage.PreencherCampoCelular(PreencherTelefone.gerarTelefoneCelular());
+    }
+
     @Then("o campo deve conter {string}")
-    public void validar_nome(String esperado) {
-        String valorCampo = formPage.getNomeValue();
-        Assert.assertEquals("O campo não contém o valor esperado!", esperado, valorCampo);
-        DriverFactory.quitDriver();
+        public void validar_nome (String esperado){
+                String valorCampo = formPage.getNomeValue();
+                Assert.assertEquals("O campo não contém o valor esperado!", esperado, valorCampo);
+                DriverFactory.quitDriver();
     }
 }

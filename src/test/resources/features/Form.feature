@@ -7,5 +7,6 @@ Feature: Preencher formulário
     And ele preenche o campo CPF
     And ele preenche o campo com Data de Nascimento
     And ele preenche o campo com Email
+    And ele preenche o campo com Celular
     And ele preenche o campo com CEP
     Then o campo deve conter "Tiago Henrique"

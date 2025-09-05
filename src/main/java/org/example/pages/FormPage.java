@@ -13,6 +13,7 @@ public class FormPage {
     private By inputData = By.id("dtnasc");
     private By inputEmail = By.id("email");
     private By inputCep = By.id("cep");
+    private By inputCelular = By.id("phone");
 
     public FormPage(WebDriver driver) {
         this.driver = driver;
@@ -70,6 +71,18 @@ public class FormPage {
         WebElement campo = driver.findElement(inputCep);
         campo.clear();
         campo.sendKeys(CEP);
+        //Sleep somente para visualizar
+        try {
+            Thread.sleep(1000); // espera 5 segundos
+        } catch (InterruptedException e) {
+            //nao realizar acao
+        }
+    }
+
+    public void PreencherCampoCelular(String Celular){
+        WebElement campo = driver.findElement((inputCelular));
+        campo.clear();
+        campo.sendKeys(Celular);
         //Sleep somente para visualizar
         try {
             Thread.sleep(1000); // espera 5 segundos

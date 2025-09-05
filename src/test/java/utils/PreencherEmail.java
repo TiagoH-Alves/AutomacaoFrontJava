@@ -4,8 +4,18 @@ import java.util.Random;
 
 public class PreencherEmail {
 
-    private static final String ALFABETO = "abcdefghijklmnopqrstuvwxyz";
-    private static final String DIGITOS = "0123456789";
+    private static final String[] NOMES = {
+            "tiago", "maria", "joao", "jose", "ana", "paulo", "lucas", "fernanda",
+            "carla", "roberto", "eduardo", "aline", "camila", "ricardo", "juliana"
+    };
+
+    private static final String[] SOBRENOMES = {
+            "silva", "souza", "alves", "pereira", "santos", "oliveira", "rodrigues",
+            "ferreira", "gomes", "barbosa", "castro", "teixeira", "melo", "dias"
+    };
+
+    private static final String[] SEPARADORES = {".", "_", "-"}; // pode ser ponto, underline ou hífen
+
     private static final String[] DOMINIOS = {
             "gmail.com", "hotmail.com", "outlook.com", "yahoo.com", "teste.com"
     };
@@ -13,24 +23,24 @@ public class PreencherEmail {
     public static String gerarEmail() {
         Random random = new Random();
 
-        // Parte inicial (nome do usuário)
-        StringBuilder usuario = new StringBuilder();
+        // Nome e sobrenome
+        String nome = NOMES[random.nextInt(NOMES.length)];
+        String sobrenome = SOBRENOMES[random.nextInt(SOBRENOMES.length)];
 
-        // Letras aleatórias
-        int tamanho = 5 + random.nextInt(6); // de 5 a 10 caracteres
-        for (int i = 0; i < tamanho; i++) {
-            usuario.append(ALFABETO.charAt(random.nextInt(ALFABETO.length())));
+        // Separador aleatório
+        String separador = SEPARADORES[random.nextInt(SEPARADORES.length)];
+
+        // Monta parte do usuário
+        String usuario = nome + separador + sobrenome;
+
+        // Pode adicionar números opcionais
+        if (random.nextBoolean()) {
+            usuario += random.nextInt(100); // de 0 até 99
         }
 
-        // Números aleatórios opcionais
-        int qtdNumeros = random.nextInt(4); // até 3 dígitos no final
-        for (int i = 0; i < qtdNumeros; i++) {
-            usuario.append(DIGITOS.charAt(random.nextInt(DIGITOS.length())));
-        }
-
-        // Escolher domínio
+        // Escolhe domínio
         String dominio = DOMINIOS[random.nextInt(DOMINIOS.length)];
 
-        return usuario.toString() + "@" + dominio;
+        return usuario.toLowerCase() + "@" + dominio;
     }
 }
